@@ -44,7 +44,7 @@
                             </div><!-- featured-icon-box end-->
                         </aside>
                     </div>
-                    <div class="widget-area col-xs-12 col-sm-12 col-md-3 col-lg-4">
+                    <div class="widget-area col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <aside class="widget widget-text">
                             <!--featured-icon-box-->
                             <div class="featured-icon-box icon-align-before-content">
@@ -169,7 +169,7 @@
             <div class="container">
                 <div class="row copyright">
                     <div class="col-sm-9">
-                        <span>Copyright © 2020 Laboratorium Calibration Telkom</span>
+                        <span>Copyright © 2021 Telkom Calibration Laboratory by Calista</span>
                     </div>
                     <!-- <div class="col-sm-3">
                         <div class="d-flex flex-row align-items-center justify-content-end social-icons">

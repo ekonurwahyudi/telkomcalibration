@@ -94,7 +94,7 @@
                     <div class="row">
                         <div class="col-xl-12 d-flex flex-row align-items-center ">
                             <div class="top_bar_contact_item"><div class="top_bar_icon"><i class="fa fa-phone"></i></div>021-21480341</div>
-                            <div class="top_bar_contact_item"><div class="top_bar_icon"><i class="fal fa-envelope"></i></div><a href="../mailto:yourdomain@gmail.com">labkalibrasi@telkom.co.id</a></div>
+                            <div class="top_bar_contact_item"><div class="top_bar_icon"><i class="fal fa-envelope"></i></div><a href="../mailto:yourdomain@gmail.com">calista@telkom.co.id</a></div>
                             <div class="top_bar_contact_item ml-auto"><div class="top_bar_icon"><i class="fal fa-clock"></i></div>{{ __('lang.Waktu')}}</div>
                             <nav class="main-menu menu-mobile" id="menu">
                                 <ul class="menu">
