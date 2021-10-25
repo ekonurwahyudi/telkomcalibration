@@ -170,7 +170,7 @@
                 <div class="row copyright">
                     <div class="col-sm-9">
                         <img src="../images/img-footer.png" ></img>
-                        <span>Copyright © 2021 Telkom Calibration Laboratory by Calista</span>
+                        <span>© Copyright Calista 2021. All rights reserved. See product license for details.</span>
                     </div>
                     <!-- <div class="col-sm-3">
                         <div class="d-flex flex-row align-items-center justify-content-end social-icons">
