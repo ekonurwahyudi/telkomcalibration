@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ruanglingkup;
+use App\Models\RuangLingkup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facedes\Storage;
 use DB;

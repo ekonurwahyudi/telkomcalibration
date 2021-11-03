@@ -41,6 +41,10 @@ class BerandaController extends Controller
         return view('struktur-organisasi');
     }
 
+    Public function survey(){
+        return view('survey');
+    }
+
     public function hubungikami(){
         return view('hubungi-kami');
     }

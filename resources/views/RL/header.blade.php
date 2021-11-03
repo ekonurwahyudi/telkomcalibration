@@ -167,6 +167,7 @@
                                                     <!-- <li><a href="../#">Tarif Kalibrasi</a></li> -->
                                                     <li><a href="#">{{ __('lang.Client')}}</a>
                                                     <li><a href="../kritik-saran">{{ __('lang.Kritik')}}</a>
+                                                    <li><a href="../survey">Survey</a></li>
                                                 </ul>
                                             </li>
                                             <li class="mega-menu-item">
