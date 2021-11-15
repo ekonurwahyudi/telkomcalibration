@@ -35,6 +35,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/sertifikat-iso','BerandaController@sertifikat');
     Route::get('/struktur-organisasi','BerandaController@struktur');
     Route::get('/survey','BerandaController@survey');
+    Route::get('/booking','BerandaController@booking');
     Route::get('/hubungi-kami','BerandaController@hubungikami');
     Route::get('artikel/','BerandaController@allartikel');
     Route::get('/tracking-order','BerandaController@trackingorder');

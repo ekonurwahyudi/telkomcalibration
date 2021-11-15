@@ -37,12 +37,16 @@ class BerandaController extends Controller
         return view('artikel',['artikels'=>$artikels]);
     }
 
-    Public function struktur(){
+    public function struktur(){
         return view('struktur-organisasi');
     }
 
-    Public function survey(){
+    public function survey(){
         return view('survey');
+    }
+
+    Public function booking(){
+        return view('booking');
     }
 
     public function hubungikami(){

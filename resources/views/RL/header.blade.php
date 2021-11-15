@@ -152,6 +152,7 @@
                                                 <ul class="mega-submenu">
                                                     <li><a href="../layanan-kalibrasi">{{ __('lang.Kalibrasi')}}</a>
                                                     <li><a href="../konsultasi">{{ __('lang.Konsultasi')}}</a></li>
+                                                    <li><a href="../booking">Booking Kalibrasi</a></li>
                                                 </ul>
                                             </li>
                                             <li class="mega-menu-item">
