@@ -70,7 +70,58 @@
         outline-style: solid;
         outline-width: 2px;
     }
-</style>
+    .wrapper {
+        width: 330px;
+        font-family: 'Roboto';
+        font-size: 14px;
+    }
+    ul.verticalBar {
+        list-style: none;
+        position: relative;
+        height: 370px;
+        float: left;
+    }
+    .verticalBar li:first-child {
+        border-radius: 1px 1px 0 0;    
+    }
+    .verticalBar li {
+        width: 4px;
+        background: #cc3e33;
+        height: 13%;
+    }
+    .verticalBar li::after {
+        content: "";
+        display: block;
+        width: 14px;
+        height: 14px;
+        background: #cc3e33;
+        border-radius: 50%;
+        position: relative;
+        left: -5px;
+        top: calc(100% - 7px);
+    }
+    .verticalBar li.active ~ li, .verticalBar li.active ~ li::after {
+        background: #c5c5c5;
+    }
+    ul.progressText {
+        list-style: none;
+        height: 200px;
+        margin-left: 30px;
+        position: relative;
+        top: 25px;
+    }
+    ul.progressText li{
+        height: 12%;
+        color: #cc3e33;
+    }
+    ul.progressText span{
+        position: relative;
+        top: -10px;  
+        color: #cc3e33;
+    }
+    .progressText li.active ~ li, .progressText li.active ~ li::after {
+        color: #c5c5c5;
+    }
 </style>
 </head>
 

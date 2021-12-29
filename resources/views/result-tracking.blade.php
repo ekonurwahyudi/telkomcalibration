@@ -35,7 +35,7 @@
                             <br>
                             @if (count($hasils) > 0)
                             @foreach ($hasils as $hasil)
-                            <div style="background-color: #f6faff;padding: 15px; width:470px;color:black; ">
+                            <div style="background-color: #f6faff;padding: 15px; width:470px; height:650px; color:black; ">
                             
                             <span>
                                 <b>Nama Lengkap :</b> {{$hasil->user->name}}<br>
@@ -46,12 +46,34 @@
                                 <b>S/N   :</b> {{$hasil->order_sn}}<br>
                                 <b>Nomor Order   :</b> {{$hasil->order_ccl}}<br>
                                 <b>Tanggal Order :</b> {{$hasil->created_at}} <br>
-                                <b>Update Status :</b> {{$hasil->updated_at}} <br>
-                                @if($hasil->order_status == "")
-                                <b>Status Alat :</b> <b style="color:red;">Orderan Baru Masuk</b>
-                                @else
-                                <b>Status Alat :</b> <b style="color:red;">{{$hasil->order_status}}</b>
-                                @endif
+                                <b>Status Alat :</b><br>
+                                <ul class="verticalBar">
+                                    <li></li>
+                                    <li></li>
+                                    <li class="active"></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <div class="wrapper">
+                                    <ul class="progressText">
+                                        <li><b>Pre Order</b></li>
+                                        <span>Senin, 20 Desember 2021</span>
+                                        <li><b>Quotation</b></li>
+                                        <span>Selasa, 21 Desember 2021</span>
+                                        <li class="active"><b>Order diterima</b></li>
+                                        <span>Selasa, 21 Desember 2021</span>
+                                        <li><b>Order sedang dikalibrasi</b></li>
+                                        <span>&nbsp</span>
+                                        <li><b>Pembuatan Sertifikat</b></li>
+                                        <span>&nbsp</span>
+                                        <li><b>Billing Invoice</b></li>
+                                        <span>&nbsp</span>
+                                        <li><b>Selesai</b></li>
+                                        <span>&nbsp</span>
+                                    </ul>
+                                </div>
                             </span>
                             </div>
                             @endforeach
