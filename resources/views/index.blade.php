@@ -491,7 +491,7 @@
                                 <div class="sep_holder_box width-100 mt-35">
                                     <span class="sep_holder"><span class="sep_line"></span></span>
                                 </div>
-                                
+                                <a href="/BookingOrder" class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-icon-btn-left " style="background-color: #031b4e;border-color:#031b4e"> <i class="fa fa-calendar"></i>Booking Order</a>
                             </div>
                         </div>
                     </div>
@@ -663,7 +663,7 @@
             </div>
         </div>
         <!--client-section end-->
-
+        
         <div class="sep_holder_box width-100">
             <span class="sep_holder"><span class="sep_line"></span></span>
         </div>

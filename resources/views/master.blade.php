@@ -19,8 +19,8 @@
 <link rel="stylesheet" type="text/css" href="css/animate.css"/>
 
 <!-- fontawesome -->
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css"> -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css">
 <link rel="stylesheet" type="text/css" href="css/all.css">
 
 <!-- themify -->

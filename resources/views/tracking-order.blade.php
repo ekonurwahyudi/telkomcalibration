@@ -27,11 +27,11 @@
                             <form action="/check-order" role="search" method="get" class="search-form">
                             @csrf
                                 <label>
-                                    <span style="color:black; font-size: 16px;"><b><i class="fa fa-search"></i> Masukkan Nomor Order anda</b></span>
-                                    <input type="search" class="input-text" name="order_ccl" placeholder="Contoh : CCL-21-230">
+                                    <span style="color:black; font-size: 16px;"><b><i class="fa fa-search"></i> Masukkan Nomor Booking anda</b></span>
+                                    <input type="search" class="input-text" name="nomorbooking" placeholder="Contoh : BO-AJKT-23-04">
                                 </label>
                                 <button type="submit" class="btn btn-danger btn-lg" value="Search"><i class="ti ti-search" aria-hidden="true"></i></button>
-                                <br><span style="color:red;font-size:12px;"><b>*Note:</b>  Jika order kalibrasi tidak menggunakan web, maka hasilnya <b>tidak ada.</b></span>
+                                <br><span style="color:red;font-size:12px;"><b>*Note:</b>  Jika Booking kalibrasi tidak menggunakan web, maka hasilnya <b>tidak ada.</b></span>
                             </form>
                             <br>
                         </div>                    
@@ -67,4 +67,5 @@
             </div>
         </section>
     <!--footer start-->
+    
 @include('footer')

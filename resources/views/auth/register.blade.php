@@ -10,7 +10,7 @@
 						<div class="d-flex flex-column-auto flex-column px-10">
 							<!--begin::Aside header-->
                             <a href="/" class="login-logo pb-xl-1 pb-10">
-                                <img src="/images/logo-img.png" class="max-h-70px" alt="" />
+                                <img src="/images/logo-labtelkom.png" class="max-h-70px" alt="" />
                             </a>
 							<!--end::Aside header-->
 							<!--begin: Wizard Nav-->
@@ -106,7 +106,7 @@
 										<!-- <label class="font-size-h6 font-weight-bolder text-dark">Perusahaan:</label> -->
 										<select class="selectpicker form-control form-control-solid h-auto py-4 px-6 border-0 rounded-lg font-size-h6" name="nama_perusahaan" data-size="7" data-live-search="true">
 											<option value="">Pilih Perusahaan</option>
-											@foreach ($perusahaans as $perusahaan)
+											@foreach ($perusahaans ?? '' as $perusahaan)
 											<option value="{{$perusahaan->nama_perusahaan}}">{{$perusahaan->nama_perusahaan}}</option>
 											@endforeach
 										</select>

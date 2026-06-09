@@ -8,7 +8,7 @@
 					<div class="login-content d-flex flex-column pt-lg-0 pt-12">
 						<!--begin::Logo-->
 						<a href="/" class="login-logo pb-xl-20 pb-15">
-							<img src="/images/logo-img.png" class="max-h-70px" alt="" />
+							<img src="/images/logo-labtelkom.png" class="max-h-70px" alt="" />
 						</a>
 							<div class="login-form">
 							<!--begin::Form-->

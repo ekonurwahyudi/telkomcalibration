@@ -1245,6 +1245,7 @@
 		<!--end::Page Vendors-->
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="halamanadmin/js/pages/widgets.js"></script>
+		
 		<!--end::Page Scripts-->
 	</body>
 	<!--end::Body-->

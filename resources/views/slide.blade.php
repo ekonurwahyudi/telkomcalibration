@@ -5,8 +5,9 @@
                     <!-- SLIDE  -->
                 @foreach ($slides as $slide)
                     <li data-index="rs-7" data-transition="slotzoom-horizontal" data-slotamount="1" data-easein="default" data-easeout="default" data-masterspeed="0" data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-                        <a href="{{$slide->slide_link}}"><img src="../images/slides/slide1.png"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina></a>
+                        <a href="{{$slide->slide_link}}"><img src="../images/slides/slide1.png"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina width="1520" height="670"></a>
                         <!-- <img src="{{ url('storage/slides/'.$slide->slide_gambar_id)}}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina> -->
+                        {{-- <img src="https://themetechmount.com/html/labostica/images/slides/slider-mainbg-006.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina> --}}
                     </li>
                 @endforeach
                 </ul>

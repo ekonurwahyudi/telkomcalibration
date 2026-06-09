@@ -27,27 +27,46 @@
                             <form action="/check-order" role="search" method="get" class="search-form">
                             @csrf
                                 <label>
-                                    <span style="color:black; font-size: 16px;"><b><i class="fa fa-search"></i> Masukkan Nomor Order anda</b></span>
-                                    <input type="search" class="input-text" name="order_ccl" value="{{$noccl}}" placeholder="Contoh : CCL-21-230">
+                                    <span style="color:black; font-size: 16px;"><b><i class="fa fa-search"></i> Masukkan Nomor Booking anda</b></span>
+                                    <input type="search" class="input-text" name="nomorbooking" value="{{$nomorbooking}}" placeholder="Contoh : BO-AJKT-23-04">
                                 </label>
                                 <button type="submit" class="btn btn-danger btn-lg" value="Search"><i class="ti ti-search" aria-hidden="true"></i></button>
                             </form>
                             <br>
                             @if (count($hasils) > 0)
                             @foreach ($hasils as $hasil)
-                            <div style="background-color: #f6faff;padding: 15px; width:470px; height:650px; color:black; ">
-                            
+                            <div style="background-color: #f6faff;padding: 15px; width:470px; height:250px; color:black; ">
                             <span>
-                                <b>Nama Lengkap :</b> {{$hasil->user->name}}<br>
-                                <b>Nama Perusahaan :</b> {{$hasil->user->nama_perusahaan}}<br>
-                                <b>Nama Alat :</b> {{$hasil->order_namaalat}}<br>
-                                <b>Merek   :</b> {{$hasil->order_merek}}<br>
-                                <b>Model   :</b> {{$hasil->order_model}}<br>
-                                <b>S/N   :</b> {{$hasil->order_sn}}<br>
-                                <b>Nomor Order   :</b> {{$hasil->order_ccl}}<br>
-                                <b>Tanggal Order :</b> {{$hasil->created_at}} <br>
-                                <b>Status Alat :</b><br>
-                                <ul class="verticalBar">
+                                <b>Nama Lengkap :</b> {{$hasil->nama}}<br>
+                                <b>Nama Perusahaan :</b> {{$hasil->perusahaan}}<br>
+                                @if ($hasil->lab == "AJKT")
+                                <b>Lokasi   :</b> Laboratorium Kalibrasi Jakarta<br>
+                                @elseif($hasil->lab == "AMDN")
+                                <b>Lokasi   :</b> Laboratorium Kalibrasi Medan<br>
+                                @endif
+                                <b>Nomor Booking   :</b> {{$hasil->nomorbooking}}<br>
+                                <b>Layanan   :</b>
+                                @if($hasil->layanan == "InLab")
+                                    Di Lokasi Lab Telkom (InLab)
+                                @else
+                                    Onsite diLokasi (Onsite)
+                                @endif
+                                <br>
+                                <b>Tanggal Booking :</b> {{$hasil->created_at}} <br>
+                                <b>Status Alat :</b>
+                                @if($hasil->status == "Open")
+                                <div class="badge badge-info">Booking Order</div>
+                                @elseif($hasil->status == "progres")
+                                <div class="badge badge-warning">Sedang Di Kalibrasi</div>
+                                @elseif($hasil->status == "SPH Dikirim")
+                                <div class="badge badge-warning">SPH Dikirim</div>
+                                @elseif($hasil->status == "close")
+                                <div class="badge badge-success">Selesai diKalibrasi</div>
+                                @elseif($hasil->status == "cancel")
+                                <div class="badge badge-danger">Cancel/Damage</div>
+                                @endif
+                                <br>
+                                {{-- <ul class="verticalBar">
                                     <li></li>
                                     <li></li>
                                     <li class="active"></li>
@@ -55,8 +74,8 @@
                                     <li></li>
                                     <li></li>
                                     <li></li>
-                                </ul>
-                                <div class="wrapper">
+                                </ul> --}}
+                                {{-- <div class="wrapper">
                                     <ul class="progressText">
                                         <li><b>Pre Order</b></li>
                                         <span>Senin, 20 Desember 2021</span>
@@ -73,13 +92,13 @@
                                         <li><b>Selesai</b></li>
                                         <span>&nbsp</span>
                                     </ul>
-                                </div>
+                                </div> --}}
                             </span>
                             </div>
                             @endforeach
                             @else
                             <div style="background-color: #f6faff;padding: 15px; width:470px;color:black; ">
-                                <span>Nomor Order <b>{{$noccl}}</b> tidak ditemukan</span>
+                                <span>Nomor Booking <b>{{$nomorbooking}}</b> tidak ditemukan</span>
                             </div>
                             @endif
                         </div>                    
@@ -115,4 +134,5 @@
             </div>
         </section>
     <!--footer start-->
+
 @include('footer')

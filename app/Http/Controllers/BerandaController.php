@@ -14,6 +14,7 @@ use Illuminate\Support\Facedes\Storage;
 use DB;
 use Illuminate\Contracts\Support\Jsonable;
 use App;
+use App\Models\Booking;
 
 class BerandaController extends Controller
 {
@@ -46,11 +47,15 @@ class BerandaController extends Controller
     }
 
     Public function booking(){
-        return view('booking');
+        return redirect('/BookingOrder');
     }
 
     public function hubungikami(){
         return view('hubungi-kami');
+    }
+
+    public function zoom(){
+        return view('zoom');
     }
 
     public function tentang(){
@@ -107,8 +112,8 @@ class BerandaController extends Controller
 
     public function searchorder(Request $request){
         $orders = Orderkalibrasi::paginate(5);
-        $hasils = Order::where('order_ccl', $request->order_ccl)->get();
-        $noccl = $request->order_ccl;
-        return view('/result-tracking',['hasils' => $hasils],['orders' => $orders])->with('noccl', $noccl);
+        $hasils = Booking::where('nomorbooking', $request->nomorbooking)->get();
+        $nomorbooking = $request->nomorbooking;
+        return view('/result-tracking',['hasils' => $hasils],['orders' => $orders])->with('nomorbooking', $nomorbooking);
     }
 }

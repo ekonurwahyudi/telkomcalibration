@@ -13,9 +13,18 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
+    
+    RewriteCond %{HTTP_HOST} ^telkomcalibration\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.telkomcalibration\.com$
+RewriteRule ^progress\-css$ "https\:\/\/telkomind\-my\.sharepoint\.com\/\:x\:\/g\/personal\/eko_wahyudi_telkom_co_id\/EXM5FHev62ZIk9jLBmvbyzcBCSLFMEbEm6\-8YAhWhxL39w\?e\=sNaRC5" [R=301,L]
+RewriteCond %{HTTP_HOST} ^telkomcalibration\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.telkomcalibration\.com$
+RewriteRule ^KUM\-WS\-2023$ "https\:\/\/forms\.gle\/RrQxV1GmBd7RLayx8" [R=301,L]
 
     # Send Requests To Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+RewriteCond %{HTTP_HOST} ^telkomcalibration\.com$
+RewriteRule ^testimonicalista$ "https\:\/\/telkomind\-my\.sharepoint\.com\/\:f\:\/g\/personal\/eko_wahyudi_telkom_co_id\/Eg9pcrB2oyxDsqRNvA08SEgBysWHBPNb7YCs38w0srzZEA\?e\=rikPh6" [R=301,L]

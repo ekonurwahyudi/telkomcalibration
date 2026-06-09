@@ -12,8 +12,71 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 //Route Translate
+
+//Booking Order
+Route::get('/BookingOrder', 'BookingController@create')->name('order.create');
+Route::post('/order', 'BookingController@store')->name('order.store');
+Route::get('/monitoring-booking', 'BookingController@monitoring');
+Route::get('/editbooking/{id}','BookingController@edit');
+Route::post('/updatebooking/{id}','BookingController@update');
+Route::get('/cetak-kup/{id}', 'BookingController@kup');
+Route::get('/cetak-pap/{id}', 'BookingController@pap');
+Route::get('/formBA/{id}', 'BookingController@formba');
+Route::post('/cetak-ATE04/{id}', 'BookingController@ate04');
+Route::get('/tracking-order','BerandaController@trackingorder');
+Route::get('/check-order','BerandaController@searchorder');
+Route::get('/zoomstream','BerandaController@zoom');
+
+
+// Dashboaord CSS 2023
+Route::get('/dashboard-css','CssController@css');
+Route::post('/css-input','CssController@input');
+Route::get('/hasil-survey-css/{id}/edit','CssController@editHasilSurvey')->name('hasil-survey-css.edit');
+Route::post('/hasil-survey-css/{id}/update','CssController@updateHasilSurvey')->name('hasil-survey-css.update');
+Route::post('/hasil-survey-css/{id}/delete','CssController@deleteHasilSurvey')->name('hasil-survey-css.delete');
+Route::get('/all-list','CssController@list');
+Route::get('/check-name', 'CssController@checkName')->name('form.checkName');
+Route::post('/check-duplicate', 'UserController@checkDuplicate');
+Route::get('/add','CssController@add');
+Route::get('/edit/{id}','CssController@edit');
+Route::post('/update/{id}','CssController@update');
+Route::post('/add-proses','CssController@proses');
+Route::post('data/{id}', 'CssController@destroy')->name('data.destroy');
+Route::get('/treg1','CssController@treg1');
+Route::get('/treg2','CssController@treg2');
+Route::get('/treg3','CssController@treg3');
+Route::get('/treg4','CssController@treg4');
+Route::get('/treg5','CssController@treg5');
+Route::get('/treg6','CssController@treg6');
+Route::get('/treg7','CssController@treg7');
+Route::get('/survey_export', 'CssController@export');
+Route::get('/survey_export_filtered', 'CssController@exportFiltered');
+Route::get('/all-list/export_excel', 'CssController@export_treg');
+Route::get('/treg1/export_excel', 'CssController@export_treg1');
+Route::get('/treg2/export_excel', 'CssController@export_treg2');
+Route::get('/treg3/export_excel', 'CssController@export_treg3');
+Route::get('/treg4/export_excel', 'CssController@export_treg4');
+Route::get('/treg5/export_excel', 'CssController@export_treg5');
+Route::get('/treg6/export_excel', 'CssController@export_treg6');
+Route::get('/treg7/export_excel', 'CssController@export_treg7');
+Route::post('/uploadbulk', 'CssController@uploadExcel')->name('upload.excel');
+Route::post('/copy-respondents-year', 'CssController@copyRespondentsYear')->name('copy.respondents.year');
+Route::get('/timeplan','CssController@timeplan');
+
+
+//Survey Mitra DSO
+Route::get('/SurveyMitraDSO','MitraController@index');
+Route::post('/mitra-input','MitraController@input');
+Route::get('/monitoringsurvey','MitraController@monitoring');
+Route::get('/datamitra','MitraController@datamitra');
+
+//Report Dashboard
+Route::get('/analisis2023','ReportController@report23');
+Route::get('/analisis2024','ReportController@report24');
+Route::get('/analisis2025','ReportController@report25');
+Route::get('/analisis-css','ReportController@reportDynamic');
+
 // Route::redirect('/','/id');
 Route::group(['prefix' => LaravelLocalization::setLocale(),
 	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath']], function()
@@ -34,12 +97,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),
     Route::get('/kritik-saran','BerandaController@kritik_saran');
     Route::get('/sertifikat-iso','BerandaController@sertifikat');
     Route::get('/struktur-organisasi','BerandaController@struktur');
-    Route::get('/survey','BerandaController@survey');
+    // Route::get('/CSS2024','BerandaController@survey');
     Route::get('/booking','BerandaController@booking');
     Route::get('/hubungi-kami','BerandaController@hubungikami');
     Route::get('artikel/','BerandaController@allartikel');
-    Route::get('/tracking-order','BerandaController@trackingorder');
-    Route::get('/check-order','BerandaController@searchorder');
+
+    Route::get('/CSS-LKTelkom','CssController@survey');
 });
 
 

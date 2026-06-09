@@ -15,6 +15,7 @@
 		<link rel="shortcut icon" href="../halamanadmin/media/logos/favicon.png" />
 		<link rel="stylesheet" href="../halamanadmin/css/dropify.min.css">
 		<link href="../halamanadmin/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+		<!--<link href="https://preview.keenthemes.com/html/metronic/docs/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet">-->
 	</head>
 	<!--end::Head-->
     <!--begin::Body-->
@@ -96,7 +97,7 @@
 						<div id="kt_aside_menu" class="aside-menu my-4" data-menu-vertical="1" data-menu-scroll="1" data-menu-dropdown-timeout="500">
 							<!--begin::Menu Nav-->
 							<ul class="menu-nav">
-								<li class="menu-item menu-item-active" aria-haspopup="true">
+								<li class="menu-item menu-item" aria-haspopup="true">
 									<a href="awanlab" class="menu-link">
 										<span class="svg-icon menu-icon">
 											<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
@@ -110,6 +111,22 @@
 											<!--end::Svg Icon-->
 										</span>
 										<span class="menu-text">Dashboard</span>
+									</a>
+								</li>
+								<li class="menu-item menu-item-active" aria-haspopup="true">
+									<a href="dashboard-css" class="menu-link">
+										<span class="svg-icon menu-icon">
+											<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<rect x="0" y="0" width="24" height="24"/>
+													<path d="M7,15 C7.55228475,15 8,15.4477153 8,16 C8,16.5522847 7.55228475,17 7,17 L6,17 C4.34314575,17 3,15.6568542 3,14 L3,7 C3,5.34314575 4.34314575,4 6,4 L18,4 C19.6568542,4 21,5.34314575 21,7 L21,14 C21,15.6568542 19.6568542,17 18,17 L17,17 C16.4477153,17 16,16.5522847 16,16 C16,15.4477153 16.4477153,15 17,15 L18,15 C18.5522847,15 19,14.5522847 19,14 L19,7 C19,6.44771525 18.5522847,6 18,6 L6,6 C5.44771525,6 5,6.44771525 5,7 L5,14 C5,14.5522847 5.44771525,15 6,15 L7,15 Z" fill="#000000" fill-rule="nonzero"/>
+													<polygon fill="#000000" opacity="0.3" points="8 20 16 20 12 15"/>
+												</g>
+											</svg>
+											<!--end::Svg Icon-->
+										</span>
+										<span class="menu-text">Dashboard CSS 2023</span>
 									</a>
 								</li>
 								<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
@@ -425,7 +442,7 @@
 								<div class="topbar-item">
 								<div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2" data-toggle="dropdown" data-offset="10px,0px">
 										<span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
-										<span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{ Auth::user()->name }}</span>
+										<span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">tes</span>
 										
 										<span class="symbol symbol-lg-35 symbol-25 symbol-light-danger">
 											<span class="symbol-label font-size-h5 font-weight-bold"><span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:/var/www/preview.keenthemes.com/metronic/releases/2020-12-28-020759/theme/html/demo5/dist/../src/media/svg/icons/General/User.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -543,7 +560,8 @@
 		<script src="../halamanadmin/plugins/custom/prismjs/prismjs.bundle.js"></script>
 		<script src="../halamanadmin/js/scripts.bundle.js"></script>
 		<script src="../../halamanadmin/js/pages/crud/ktdatatable/base/html-table.js?v=7.1.7"></script>
-		<script src="../halamanadmin/plugins/custom/datatables/datatables.bundle.js"></script>
+		<!--<script src="../halamanadmin/plugins/custom/datatables/datatables.bundle.js"></script>-->
+		<script src="https://preview.keenthemes.com/html/metronic/docs/assets/plugins/custom/datatables/datatables.bundle.js"></script>
 		<!--end::Page Vendors-->
 		<!--begin::Page Scripts(used by this page)-->
         <script src="../halamanuser/js/data-table.js"></script>
