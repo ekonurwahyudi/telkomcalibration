@@ -1,12 +1,16 @@
-FROM php:8.1-apache
+FROM php:8.3-apache
 
 WORKDIR /var/www/html
+
+ENV APP_ENV=production \
+    APP_DEBUG=false
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         git \
         unzip \
         zip \
+        libcurl4-openssl-dev \
         libicu-dev \
         libjpeg62-turbo-dev \
         libonig-dev \
@@ -15,6 +19,7 @@ RUN apt-get update \
     && docker-php-ext-configure gd --with-jpeg \
     && docker-php-ext-install -j"$(nproc)" \
         bcmath \
+        curl \
         exif \
         gd \
         intl \
