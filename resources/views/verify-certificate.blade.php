@@ -25,7 +25,7 @@
             overflow: hidden;
         }
         .banner { padding: 24px; text-align: center; color: #fff; }
-        .banner.valid   { background: #1bc5bd; }
+        .banner.valid   { background: #ee2725; }
         .banner.invalid { background: #f64e60; }
         .banner.warn    { background: #ffa800; }
         .banner h1 { margin: 14px 0 4px; font-size: 20px; }
@@ -38,7 +38,7 @@
             padding: 10px 16px;
             background: #fff;
             border-radius: 10px;
-            box-shadow: 0 1px 6px rgba(0,0,0,.12);
+            /* box-shadow: 0 1px 6px rgba(0,0,0,.12); */
         }
         .banner .logo img { max-height: 46px; display: block; }
         .body { padding: 20px 24px 24px; }
@@ -50,9 +50,8 @@
             padding: 18px 16px 0;
             border-top: 1px solid #ebedf3;
             margin: 0 16px;
-            text-align: center;
         }
-        .brand-foot img { max-height: 54px; }
+        .brand-foot img { width: 100%; height: auto; display: block; }
         .foot {
             padding: 14px 24px 20px;
             font-size: 12px;
@@ -96,7 +95,8 @@
                 </table>
             </div>
             <div class="brand-foot">
-                <img src="{{ asset('images/kan.png') }}" alt="Komite Akreditasi Nasional">
+                <img src="{{ asset('images/footer.png') }}"
+                     alt="Komite Akreditasi Nasional - LK-016-IDN">
             </div>
         @elseif ($error)
             {{-- Layanan bermasalah, BUKAN sertifikat palsu. Dibedakan supaya
