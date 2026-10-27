@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 //Route Translate
 
 // Verifikasi keaslian sertifikat dari QR code -- publik, tanpa login.
-// Path /v/ sengaja pendek: tiap karakter menambah kerapatan QR.
-Route::get('/v/{token}', 'VerifyCertificateController@show')->name('verify.certificate');
+Route::get('/verify-certificate/{token}', 'VerifyCertificateController@show')->name('verify.certificate');
+// Path pendek lama tetap dilayani: QR pada sertifikat yang sudah tercetak
+// memuat /v/ dan tidak bisa diubah lagi.
+Route::get('/v/{token}', 'VerifyCertificateController@show');
 
 //Booking Order
 Route::get('/BookingOrder', 'BookingController@create')->name('order.create');
