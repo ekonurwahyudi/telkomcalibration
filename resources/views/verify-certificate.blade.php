@@ -79,7 +79,7 @@
             <div class="body">
                 <table>
                     <tr><th>No Order</th><td>{{ $document['no_order'] ?: '-' }}</td></tr>
-                    <tr><th>No Serial</th><td>{{ $document['nomor_serial'] ?: '-' }}</td></tr>
+                    <tr><th>No Certificate</th><td>{{ $document['nomor_serial'] ?: '-' }}</td></tr>
                     <tr><th>Serial Number</th><td>{{ $document['serial_number'] ?: '-' }}</td></tr>
                     <tr><th>Item</th><td>{{ $document['item_desc'] ?: '-' }}</td></tr>
                     <tr><th>Merk / Model</th><td>{{ $document['model'] ?: '-' }}</td></tr>
