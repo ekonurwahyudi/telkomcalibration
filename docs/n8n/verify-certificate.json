@@ -1,0 +1,223 @@
+{
+  "name": "Verifikasi Sertifikat Kalibrasi",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "verify-certificate",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-verify",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -560,
+        300
+      ],
+      "webhookId": "verify-certificate"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Validasi bentuk token sebelum memanggil ATEMIS.\n// base64url 22 karakter (baru) atau hex 32 (sertifikat lama).\nconst req = $input.first().json;\nconst token = req.query?.token ?? '';\nconst valid = /^([A-Za-z0-9_-]{22}|[a-f0-9]{32})$/.test(token);\n\n// Kunci diteruskan dari pemanggil (telkomcalibration), bukan disimpan di n8n.\n// Instance memblokir $env di node, dan menyimpan rahasia di dua tempat\n// hanya menambah yang harus dijaga. Header diturunkan jadi huruf kecil.\nconst verifyKey = req.headers?.['x-verify-key'] ?? '';\n\nreturn [{ json: { token, valid, verifyKey } }];"
+      },
+      "id": "validate-token",
+      "name": "Validasi Token",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -340,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "token-valid",
+              "leftValue": "={{ $json.valid }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "if-valid",
+      "name": "Token Valid?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -120,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=http://atemis.intranet.local/api-be/verify-api/{{ $json.token }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Verify-Key",
+              "value": "={{ $json.verifyKey }}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 8000,
+          "response": {
+            "response": {
+              "neverError": true,
+              "fullResponse": true
+            }
+          }
+        }
+      },
+      "id": "call-atemis",
+      "name": "Panggil ATEMIS",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        120,
+        200
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Teruskan apa adanya dari ATEMIS, termasuk status HTTP-nya.\n// 404 berarti token tidak terdaftar; selain itu ATEMIS bermasalah --\n// telkomcalibration membedakan keduanya saat menampilkan halaman.\nconst res = $input.first().json;\n\n// Cabang error node HTTP (DNS gagal, koneksi ditolak, timeout) tidak\n// punya statusCode sama sekali -- perlakukan sebagai 502.\nif (res.error || res.statusCode === undefined) {\n  return [{ json: { _status: 502, valid: false, message: 'Sumber data tidak dapat dihubungi' } }];\n}\n\nconst status = res.statusCode;\nconst body = res.body ?? {};\n\nif (status === 200 && body.valid) {\n  return [{ json: { _status: 200, valid: true, data: body.data } }];\n}\n\nif (status === 404) {\n  return [{ json: { _status: 404, valid: false, message: 'Kode verifikasi tidak terdaftar' } }];\n}\n\nreturn [{ json: { _status: 502, valid: false, message: 'Sumber data tidak dapat dihubungi' } }];"
+      },
+      "id": "normalize",
+      "name": "Normalisasi Respons",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        340,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ valid: $json.valid, data: $json.data ?? null, message: $json.message ?? null }) }}",
+        "options": {
+          "responseCode": "={{ $json._status }}"
+        }
+      },
+      "id": "respond-result",
+      "name": "Balas Hasil",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        560,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ valid: false, data: null, message: 'Format token tidak valid' }) }}",
+        "options": {
+          "responseCode": 404
+        }
+      },
+      "id": "respond-invalid",
+      "name": "Balas Token Tidak Valid",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        120,
+        420
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Validasi Token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validasi Token": {
+      "main": [
+        [
+          {
+            "node": "Token Valid?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Token Valid?": {
+      "main": [
+        [
+          {
+            "node": "Panggil ATEMIS",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Balas Token Tidak Valid",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Panggil ATEMIS": {
+      "main": [
+        [
+          {
+            "node": "Normalisasi Respons",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Normalisasi Respons",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalisasi Respons": {
+      "main": [
+        [
+          {
+            "node": "Balas Hasil",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}
